@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-top: 60px"></div>
+<div class="m-title">Danh mục loại sản phẩm</div>
+<div class="card" ng-app="Admin">
+    <div class="card-body" ng-controller="ProductController">
+        <div class="m-btn-control">
+            Sắp xếp:
+            <select style="font-size: 16px; padding: 6px; margin-right: 10px; outline: none" ng-model="sortcolumn">
+                <option value="Product_id" selected="selected">Mã loại</option>
+                <option value="Product_title">Tên loại</option>
+                <option value="Price">Mô tả</option>
+            </select>
+            @*<button type="button" ng-click="Chon(direct)" class="btn btn-success m-btn">{{direct}}</button>*@
+            <div class="search-container" style="padding-bottom: 10px">
+                Tìm kiếm:
+                <input type="text" placeholder="Search.." name="search" ng-model="searchText">
+            </div>
+        </div>
+        <table class="table table-bordered m-table">
+            <thead>
+                <tr>
+                    <th style="text-align: center" scope="col">Mã loại</th>
+                    <th style="text-align: center" scope="col">Tên loại</th>
+                    <th style="text-align: center" scope="col">Mô tả</th>
+                    <th style="text-align: center" scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="overflow-y: hidden" dir-paginate="category in categories|orderBy:sortcolumn:reverse|filter:searchText|itemsPerPage:5" toltal-items="totalCount">
+                    <td style="height: 50px">{{category.Category_id}}</td>
+                    <td style="height: 50px">{{category.Category_name}}</td>
+                    <td style="height: 50px">{{Category.Description}}</td>
+                    <td style="font-size: 20px; line-height: 50px; padding-left: 15px">
+                        <a><i class="fas fa-edit" data-toggle="modal" data-target="#myModal"></i></a>
+                        <a><i class="fas fa-trash-alt"></i></a>
+                        <a><i class="fas fa-info-circle"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size: 16px; margin-left: 10px"><i class="fas fa-plus" data-toggle="modal" data-target="#myModal"></i></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="toast"></div>
+
+        <div class="pagination">
+            <button type="button" ng-click="showSuccessToast();" class="btn btn-success m-btn" value="Cập nhật"><i class="fas fa-edit"></i> Cập nhật</button>
+            <dir-pagination-controls max-size="maxSize"
+                                     direction-links="true"
+                                     boundary-links="true">
+            </dir-pagination-controls>
+        </div>
+
+        <div class="m-modal modal fade " id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Thêm sản phẩm</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Mã loại:</label>
+                                <input type="text" value="@Guid.NewGuid()" disabled />
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Tên loại:</label>
+                                <input type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Lớp cha:</label>
+                                <input type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Mô tả:</label>
+                                <input type="text" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Xác nhận</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

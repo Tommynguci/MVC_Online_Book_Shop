@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="statistic">
+    <div class="statistic-item1">
+        <span class="header-text">Khoảng thời gian</span>
+        <div class="btn"><i class="far fa-calendar item1-icon"></i>7 ngày qua</div>
+        <span class="header-text">So sánh với</span>
+        <div class="btn">
+            Trước đó 7 ngày <i class="fas fa-angle-down item1-icon1"></i>
+        </div>
+        <div class="dropdown-container">
+            <div class="sub-menu-down">
+                <span class="title">Trước đó 1 ngày</span>
+            </div>
+            <div class="sub-menu-down">
+                <span class="title">Trước đó 7 ngày</span>
+            </div>
+            <div class="sub-menu-down">
+                <span class="title">Trước đó 28 ngày</span>
+            </div>
+            <div class="sub-menu-down">
+                <span class="title">Trước đó 90 ngày</span>
+            </div>
+        </div>
+        <div class="btn-left">
+            <div class="btn">
+                <i class="fas fa-filter item1-icon"></i>Thêm lọc<i class="fas fa-angle-down item1-icon1"></i>
+            </div>
+            <div class="btn"><i class="fas fa-undo item1-icon"></i>Tải lại</div>
+            <div class="btn"><i class="fas fa-cog item1-icon"></i>Cấu hình</div>
+        </div>
+
+    </div>
+    <div class="statistic-item2">
+        <div class="grid-container">
+            <div class="item1">
+                <i class="fas fa-external-link-alt fa-1x statistic-icon"
+                   style="color: rgb(0, 168, 84);"></i>
+                <span class="statistic-price1">0</span>
+                <span class="statistic-price1-text">Tổng hàng chốt</span>
+                <span class="statistic-price2">0 <u>đ</u></span>
+                <span class="statistic-price2-text">Tổng tiền hàng chốt</span>
+            </div>
+            <div class="item2">
+                <i class="fas fa-external-link-alt fa-1x statistic-icon"
+                   style="color: rgb(240, 65, 52);"></i>
+                <span class="statistic-price1">0</span>
+                <span class="statistic-price1-text">Tổng hàng hoàn</span>
+                <span class="statistic-price2">0 <u>đ</u></span>
+                <span class="statistic-price2-text">Tổng tiền hàng hoàn</span>
+            </div>
+            <div class="item3">
+                <i class="fas fa-home statistic-icon1" style="color: rgb(24, 144, 255);"></i>
+                <span class="statistic-item3-text1">Tổng hàng tồn</span>
+                <span class="statistic-item3-price1">0</span>
+                <hr style="height: 0.01rem; margin: 10px 5%; width: 90%;">
+                <i class="fas fa-dollar-sign statistic-icon2" style="color: rgb(227, 175, 47);"></i>
+                <span class="statistic-item3-text2">Tổng tiền hàng tồn</span>
+                <span class="statistic-item3-price2">0 <u>đ</u></span>
+            </div>
+        </div>
+    </div>
+    <div class="statistic-item3">
+        <div class="grid-container">
+            <div class="item1">
+
+            </div>
+        </div>
+    </div>
+    <div class="statistic-item4">
+        <div class="grid-container">
+            <div class="item1">
+                Doanh thu <br>
+                <table style="font-size: 20px; text-align: center;" cellspacing='0' cellpadding='5'>
+                    <tr class="products">
+                        <td class="statistic-item4-text">Online</td>
+                        <td class="statistic-item4-amount">Tại quầy</td>
+                    </tr>
+                    <tr class="products">
+                        <td class="statistic-item4-text">Đơn chốt 0</td>
+                        <td class="statistic-item4-amount">Đơn chốt 0</td>
+                    </tr>
+                    <tr class="products">
+                        <td class="statistic-item4-text">Doanh thu 0<u>đ</u></td>
+                        <td class="statistic-item4-amount">Doanh thu 0<u>đ</u></td>
+                    </tr>
+                    <tr class="products">
+                        <td class="statistic-item4-text">Ngày thống kê</td>
+                        <td class="statistic-item4-amount"><span id="currentDate"></span></td>
+                    </tr>
+                    <tr class="products">
+                        <td class="statistic-item4-text"><b>TỔNG DOANH THU</b></td>
+                        <td class="statistic-item4-amount"><b>0</b></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="item2">
+                Đơn hàng <br>
+                <table style="font-size: 20px; text-align: center;" cellspacing='0' cellpadding='5'>
+                    <tr class="products">
+                        <td class="statistic-item4-text">Số đơn tạo mới</td>
+                        <td class="statistic-item4-amount">0</td>
+                    </tr>
+                    <tr class="products" style="color: red;">
+                        <td class="statistic-item4-text">SL đơn huỷ</td>
+                        <td class="statistic-item4-amount">0</td>
+                    </tr>
+                    <tr class="products" style="color: green;">
+                        <td class="statistic-item4-text">SL đơn chốt</td>
+                        <td class="statistic-item4-amount">0</td>
+                    </tr>
+                    <tr class="products">
+                        <td class="statistic-item4-text">SL hàng bán ra</td>
+                        <td class="statistic-item4-amount">0</td>
+                    </tr>
+                    <tr class="products">
+                        <td class="statistic-item4-text">SL khách hàng</td>
+                        <td class="statistic-item4-amount">0</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

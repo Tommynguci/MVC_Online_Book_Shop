@@ -1,0 +1,102 @@
+﻿
+@* Tách Menu thành 2 bản tiếng Anh và tiếng Việt *@
+<div class="app">
+    <div class="nav-container nav-container-visible">
+        <div class="nav-inner grid">
+            <div class="nav-brand">
+                <a href="/">Book Store</a>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="nav-links">
+                <ul class="nav-content">
+                    <li><a href="#" class="nav-item">Home</a></li>
+                    <li><a href="#" class="nav-item">Buy</a></li>
+                    <li><a href="#" class="nav-item">Author</a></li>
+                </ul>
+
+                <ul class="nav-login">
+                    <li><a href="/login">Sign In</a></li>
+                    |
+                    <li><a href="/register">Sign Up</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-links-logged">
+                <div class="nav-search">
+                    <input type="text" name="" id="nav-logged-search" placeholder="Tìm kiếm sách">
+
+                    @*START: Nav-search-result*@
+                    <div class="nav-search-result">
+                        <div class="nav-search-result-item">
+                            <img src="~/Public/img/IMG_1327.jpg" alt="" class="search-result-img">
+                            <div class="flex-column">
+                                <span class="search-result-heading">Ngày đẹp trời em sẽ đến</span>
+                                <span class="search-result-desc">Tác phẩm được sáng tác bởi Tommy, xuất bản ngày 10/08/2021, nội dung nói về</span>
+                            </div>
+                        </div>
+                        <div class="nav-search-result-item">
+                            <img src="~/Public/img/IMG_1327.jpg" alt="" class="search-result-img">
+                            <div class="flex-column">
+                                <span class="search-result-heading">Ngày đẹp trời em sẽ đến</span>
+                                <span class="search-result-desc">Tác phẩm được sáng tác bởi Tommy, xuất bản ngày 10/08/2021, nội dung nói về</span>
+                            </div>
+                        </div>
+                        <div class="nav-search-result-item">
+                            <img src="~/Public/img/IMG_1327.jpg" alt="" class="search-result-img">
+                            <div class="flex-column">
+                                <span class="search-result-heading">Ngày đẹp trời em sẽ đến</span>
+                                <span class="search-result-desc">Tác phẩm được sáng tác bởi Tommy, xuất bản ngày 10/08/2021, nội dung nói về</span>
+                            </div>
+                        </div>
+                        <div class="nav-search-result-more">
+                            Xem nhiều kết quả hơn về ...
+                        </div>
+                    </div>
+                    @*END: Nav-search-result*@
+                </div>
+                <ul class="nav-content">
+                    <li><a href="#" class="nav-item">Trang chủ</a></li>
+                    <li><a href="#" class="nav-item">Mua sách</a></li>
+                    <li><a href="#" class="nav-item">Tác giả</a></li>
+                </ul>
+
+                <ul class="nav-login">
+                    @*làm vùng hiển thị tài khoản gồm ảnh đại diện và tên hiển thị, cho phép chọn để thực hiện đăng xuất,
+                        quản lý tài khoản*@
+                    <li class="nav-account-zone">
+                        <img class="nav-account-zone__logo" src="~/Public/img/IMG_1568.jpg" alt="account-logo">
+
+                        <div class="me-management-zone">
+                            <div class="account-info">
+                                <a href="#"><img src="~/Public/img/IMG_1568.jpg" alt="">Nguyen Anh Tuan</a>
+                            </div>
+                            <div class="account-management-zone">
+                                <ul>
+                                    <li class="your-cart"><i class="fas fa-shopping-cart icon"></i>Giỏ hàng của bạn (0)</li>
+                                    <li class="your-account"><i class="fas fa-user-circle icon"></i>Tài khoản của bạn</li>
+                                    <li class="change-account"><i class="fas fa-users icon"></i>Chuyển đổi tài khoản</li>
+                                    <li class="logout"><i class="fas fa-sign-out-alt icon"></i>Đăng xuất</li>
+                                </ul>
+                            </div>
+                            <div class="website-management-zone">
+                                <ul>
+                                    <li class="dark-light-theme"><i class="fas fa-adjust icon"></i>Giao diện: Sáng</li>
+                                    <li class="language"><i class="fas fa-language icon"></i>Ngôn ngữ: Tiếng Việt</li>
+                                    <li class="setup"><i class="fas fa-cog icon"></i>Cài đặt</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+
+            <div class="move-header">
+                <a href="#"><i class="fas fa-arrow-up"></i></a>
+            </div>
+        </div>
+    </div>
+
+</div>

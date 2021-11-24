@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;}
+
+.mb-16 {
+  margin-bottom: 16px; }
+
+.mt-4 {
+  margin-top: 4px; }
+
+.pt-16 {
+  padding-top: 16px; }
+
+.login-container, .register-container {
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: -10px;
+}
+
+.login-form, .register-form {
+  width: 360px;
+  min-height: 100px;
+  padding: 32px 24px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3); }
+
+.form-message {
+    font-size: 12px;
+    color: RGB(255, 0, 0);
+    font-weight: 600;}
+
+.heading, .desc {
+  text-align: center; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px; }
+
+.form-label {
+  font-weight: 600; }
+
+.form-control {
+  margin: 8px 0;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #b3b3b3;
+  outline: none; }
+
+.form-control:hover {
+  border: 1px solid #1dbfaf; }
+
+.form-submit {
+  padding: 12px 16px;
+  font-size: 14px;
+  margin-top: 16px;
+  width: 100%;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  background-color: #1dbfaf;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer; }
+
+.form-submit:hover {
+  background-color: #1ac7b6; }
+
+.register-question, .login-question {
+  font-size: 15px;
+  font-style: italic; }
+
+.register-question a {
+  color: dodgerblue; }
+
+.link-to-register {
+  font-style: normal !important;
+  color: dodgerblue; }

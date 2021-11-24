@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoreBook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    @*<link href="~/Public/css/register.css" rel="stylesheet" />*@
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/Controller/angular.min.js"></script>
+    <script src="~/Scripts/Controller/HomeController.js"></script>
+    <script src="~/Public/js/home.js"></script>
+    <link href="~/Public/css/content.css" rel="stylesheet" />
+    <link href="~/Public/css/app.css" rel="stylesheet" />
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+</head>
+<body ng-app="MyApp" ng-controller="ProductController">
+    <div class="app">
+        @Html.Partial("_Header")
+        @*@Html.Action("GetHeader", "Home")*@
+
+        <div class="container">
+            @RenderBody();
+        </div>
+
+        @Html.Partial("_Footer");
+        @*@Html.Action("GetFooter", "Home")*@
+    </div>
+
+
+    @*<script src="~/Public/js/login-register.js"></script>*@
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+</body>
+</html>

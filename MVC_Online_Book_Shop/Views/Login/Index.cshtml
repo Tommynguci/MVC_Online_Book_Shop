@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Public/css/register.css" rel="stylesheet" />
+</head>
+<body ng-app="LoginApp">
+    <div class="login-container" ng-controller="LoginController">
+        <form action="" method="post" class="login-form" name="loginForm" id="form-1">
+            <h3 class="heading">Đăng nhập</h3>
+            <p class="desc mb-16 pt-16"></p>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" type="email" ng-model="User.email" placeholder="VD: email@domain.com" class="form-control">
+                <span class="form-message" ng-show="loginForm.email.$invalid && loginForm.email.$dirty">Email invalid or empty</span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input id="password" name="password" type="password" ng-model="User.pass" placeholder="Nhập mật khẩu" class="form-control" required minlength="6">
+                <span class="form-message" ng-show="loginForm.password.$invalid && loginForm.password.$dirty">Password must be at least 6 characters</span>
+            </div>
+
+            <button type="button" class="form-submit" ng-click="Login()" ng-disabled="loginForm.email.$invalid && loginForm.email.$dirty
+                    || loginForm.password.$invalid && loginForm.password.$dirty">
+                Đăng nhập
+            </button>
+
+            <div class="login-question mt-4">
+                <div class="remember-password">
+                    <input type="checkbox" name="remember-password" id="remember-password">
+                    <span class="remember-password-text">Nhớ mật khẩu?</span>
+                    <a href="/register" class="link-to-register pull-right">Tạo tài khoản</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/Controller/angular.min.js"></script>
+    @*<script src="~/Public/js/home.js"></script>*@
+    <script src="~/Scripts/Controller/Login.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="content" ng-controller="ProductController" ng-repeat="category in categories">
+
+    <div style="margin-top: 48px"></div>
+    <div class="content-title">{{category.Category_name}}</div>
+    
+    <div class="content-container" ng-controller="CatgoryController">
+
+        <div ng-repeat="product in product_category" class="card-product">
+            <a href="/home/detail/{{product.Product_id}}">
+                <img src="{{product.Image_url}}" alt="{{product.Product_title}}" class="product-img">
+            </a>
+            <div class="product-info">
+                <div class="product-heading">{{product.Product_title}}</div>
+                <div class="product-price">
+                    Giá bán:
+                    @*<span class="product-price-value-strikethrough">{{product.Price}}</span>*@
+                    <span class="product-price-value">{{product.Price}}</span>
+                </div>
+                <div class="product-desc">
+                    @*{{product.Description}}*@
+                    <div class="btn-buy"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="btn-detail"><i class="far fa-eye"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-prev-next-page">
+        <button class="prev-page"><i class="fas fa-angle-left content-icon"></i>Trang trước</button>
+        <button class="next-page">Trang sau<i class="fas fa-angle-right content-icon"></i></button>
+    </div>
+</div>
