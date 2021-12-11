@@ -17,7 +17,7 @@ namespace MVC_Online_Book_Shop.Controllers
 
         public ActionResult Index()
         {
-
+            //Session["giohang"] = "";
             //List<Product> products = pb.GetProducts();
             //ViewBag.SoSanPham = products.Count();
             return View();

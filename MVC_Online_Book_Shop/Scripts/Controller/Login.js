@@ -11,7 +11,7 @@ app.controller("LoginController", function ($http, $scope) {
     //    //alert("faile");
     //});
 
-    var username = 'tommy';
+    //var username = 'tommy';
     var user = { email: "", pass: "" };
     $scope.User = user;
 

@@ -37,28 +37,47 @@ myapp.controller("ProductController", function ($scope, $http) {
         localStorage.setItem('cat_id', cat_id);
     }
 
-    //Bug: Mất sản phẩm khi load lại trang chủ
-    var data = window.sessionStorage.getItem("orders");
-    var orders = JSON.parse(data);
-    var data_product = [];
-    data_product.concat(orders);
-    data_product.splice(0, 1);
-    //$scope.orders = window.sessionStorage.getItem("orders");
-    console.log(data_product);
-    $scope.addToCart = function (product) {
-        //Lay ve san pham dat mua them vao gio hang
-
+    //Bug: Chưa thay đổi số lượng khi chọn sản phẩm đã có, chưa xoá khỏi giỏ hàng khi xoá
+    $scope.AddCart = function (o) {
         var username = sessionStorage.getItem("username");
         if (username != null && username != "logout") {
-            data_product.push(product);
-            window.sessionStorage.setItem("orders", JSON.stringify(data_product));
-            alert('Sản phẩm đã thêm vào giỏ hàng');
+            $http({
+                method: "Post",
+                dataType: "json",
+                url: '/Cart/AddCart',
+                data: JSON.stringify(o)
+            }).then(function (d) {
+                alert("Thêm sản phẩm vào giỏ hàng thành công!");
+                //$scope.orders1 = d.data;
+            }, function (error) {
+                alert("Thêm sản phẩm vào giỏ hàng lỗi");
+            });
         }
         else if (username == "logout" || username == null) {
             alert("Bạn cần đăng nhập để đặt mua!");
         }
-
     };
+    //var data = window.sessionStorage.getItem("orders");
+    //var orders = JSON.parse(data);
+    //var data_product = new Array();
+    //data_product.concat(orders);
+    //data_product.splice(0, 1);
+    ////$scope.orders = window.sessionStorage.getItem("orders");
+    //console.log(data_product);
+    //$scope.addToCart = function (product) {
+    //    //Lay ve san pham dat mua them vao gio hang
+
+    //    var username = sessionStorage.getItem("username");
+    //    if (username != null && username != "logout") {
+    //        data_product.push(product);
+    //        window.sessionStorage.setItem("orders", JSON.stringify(data_product));
+    //        alert('Sản phẩm đã thêm vào giỏ hàng');
+    //    }
+    //    else if (username == "logout" || username == null) {
+    //        alert("Bạn cần đăng nhập để đặt mua!");
+    //    }
+
+    //};
 
     $scope.total = sessionStorage.getItem("total");
     //var total = parseInt($scope.total);

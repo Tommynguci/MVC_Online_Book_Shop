@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="Orders.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="ListProduct.cs" />
+    <Compile Include="Order_Detail.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

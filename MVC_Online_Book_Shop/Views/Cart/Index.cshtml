@@ -31,12 +31,13 @@
                     <div style="margin:30px 20px; color: #000;"><h4><b><a href="/">Trang chủ</a> > Shopping Cart</b></h4></div>
                     <table class="table table-striped m-table">
                         <tbody>
-                            <tr ng-repeat="product in orders">
+                            <tr ng-repeat="product in orders1">
                                 <td style="width: 100px; height: 100px"><img style="width: 90px; height: 100px" src="{{product.Image_url}}" /></td>
                                 <td>
-                                    <h4 style="margin-top: 20px"><label>{{product.Product_title}}</label></h4> @*Tên sản phẩm*@
-                                    <h5 class="product-price">{{product.Price}}đ</h5> @*Giá bán*@
+                                    <h3 style="margin-top: 20px"><label>{{product.Product_title}}</label></h3> @*Tên sản phẩm*@
+                                    <h4 class="product-price">{{product.Price}}đ</h4> @*Giá bán*@
                                 </td>
+                                <td style="padding-top: 45px"><input style="width: 50px" type="number" value="{{product.Quantity}}"/></td>
                                 <td style="line-height: 90px; font-size: 20px; float: right; margin-right: 20px"><i ng-click="Delete(product); minusTotal(product.Price)" class="far fa-trash-alt"></i></td>
                             </tr>
                         </tbody>

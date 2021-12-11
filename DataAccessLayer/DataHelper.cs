@@ -13,7 +13,7 @@ namespace DataAccessLayer
     public class DataHelper
     {
         //SqlConnection StrConnection = new SqlConnection(ConfigurationManager)
-        string stcon = @"Data Source=ADMIN;Initial Catalog=DBStoreBook1;Integrated Security=True";
+        string stcon = @"Data Source=ADMIN;Initial Catalog=DBStoreBook;Integrated Security=True";
         SqlConnection con;
 
         public DataHelper(string stcon)
