@@ -16,6 +16,15 @@ myapp.controller("ProductController", function ($scope, $http) {
 
     $http({
         method: "get",
+        url: "/Home/Get_Top_Product_By_Datetime"
+    }).then(function (d) {
+        $scope.Tproducts = d.data;
+    }, function (error) {
+        //alert('Failed');
+    });
+
+    $http({
+        method: "get",
         url: '/Home/GetProducts'
     }).then(function success(d) {
         $scope.products = d.data;

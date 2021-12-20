@@ -47,5 +47,10 @@ namespace Bussiness
         {
             return _prod.UpdateProduct(p);
         }
+
+        public List<Product> Get_Top_Product_by_datetime()
+        {
+            return _prod.Get_Top_Product_by_datetime();
+        }
     }
 }

@@ -61,7 +61,17 @@ namespace MVC_Online_Book_Shop.Controllers
 
         public JsonResult GetDetail()
         {
+            if(Session["product_id"] == null)
+            {
+                Session["product_id"] = "";
+            }
             List<Product> lst = pb.Detail(Session["product_id"].ToString());
+            return Json(lst, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Get_Top_Product_By_Datetime()
+        {
+            List<Product> lst = pb.Get_Top_Product_by_datetime();
             return Json(lst, JsonRequestBehavior.AllowGet);
         }
 

@@ -19,6 +19,7 @@ namespace DataModel
         public string Big_image_url { get; set; }
         public string Description { get; set; }
         public int Active_flag { get; set; }
+        public DateTime Create_date_time { get; set; }
 
         public Product(string prod, string pro_title, int qty, float price, string image_url, string big_image_url)
         {

@@ -556,9 +556,9 @@ ul li{
 
 .m-btn {
     outline: none !important;
-    position: absolute;
+    /*position: absolute;
     bottom: 17px;
-    right: 10px;
+    right: 10px;*/
 }
 
 .m-table thead {
@@ -586,8 +586,8 @@ i {
 .pagination {
     position: absolute;
     bottom: 10px;
-    right: 0px;
-    width: 310px;
+    left: 20%;
+    width: 1200px;
     height: 20px;
 }
 
@@ -597,7 +597,7 @@ i {
 
 .m-btn-control {
     float: right;
-    margin-top: -47px;
+    margin-top: -57px;
 }
 
 input[type=text] {

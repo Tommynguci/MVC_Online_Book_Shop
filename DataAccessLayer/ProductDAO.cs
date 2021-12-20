@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DataModel;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace DataAccessLayer
 {
@@ -23,7 +24,7 @@ namespace DataAccessLayer
         {
             List<Product> products = new List<Product>();
 
-            SqlDataReader rdr = dh.ExcuteReader("select * from Product");
+            SqlDataReader rdr = dh.ExcuteReader("select * from Product where active_flag = 1");
             while(rdr.Read())
             {
                 Product product = new Product();
@@ -37,6 +38,8 @@ namespace DataAccessLayer
                 product.Big_image_url = rdr["big_image_url"].ToString();
                 product.Price = Convert.ToInt32(rdr["price"]);
                 product.Description = rdr["description"].ToString();
+                DateTime date = Convert.ToDateTime(rdr["create_date_time"]);
+                product.Create_date_time = date;
                 products.Add(product);
             }
 
@@ -144,6 +147,34 @@ namespace DataAccessLayer
                 "author = N'"+p.Author+"', quantity = "+p.Quantity+", price = "+p.Price+", image_url = '"+p.Image_url+"', big_image_url = '"+p.Big_image_url+"'," +
                 "description = N'"+p.Description+"' ,active_flag = "+p.Active_flag+" where product_id = '"+p.Product_id+"'";
             return dh.ExecuteNonQuery(query);
+        }
+
+        public List<Product> Get_Top_Product_by_datetime()
+        {
+            List<Product> products = new List<Product>();
+
+            SqlDataReader rdr = dh.ExcuteReader("select top(5) * " +
+                "from product " +
+                "order by create_date_time");
+            while (rdr.Read())
+            {
+                Product product = new Product();
+                product.Product_id = rdr["Product_id"].ToString();
+                product.Product_title = rdr["product_title"].ToString();
+                product.Category_id = rdr["Category_id"].ToString();
+                product.Publisher_id = rdr["Publisher_id"].ToString();
+                product.Author = rdr["Author"].ToString();
+                product.Quantity = Convert.ToInt32(rdr["Quantity"]);
+                product.Image_url = rdr["image_url"].ToString();
+                product.Big_image_url = rdr["big_image_url"].ToString();
+                product.Price = Convert.ToInt32(rdr["price"]);
+                product.Description = rdr["description"].ToString();
+                DateTime date = Convert.ToDateTime(rdr["create_date_time"]);
+                product.Create_date_time = date;
+                products.Add(product);
+            }
+
+            return products;
         }
     }
 }

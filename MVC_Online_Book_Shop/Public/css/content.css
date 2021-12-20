@@ -7,7 +7,7 @@
     font-weight: 600; }
   #content .content-container {
     display: flex;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
     align-items: center;
     flex-wrap: wrap; }
     #content .content-container .card-product {
@@ -20,6 +20,7 @@
       overflow: hidden;
       display: inline-block;
       margin: 16px 8px;
+      margin-left: 11px;
       box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3); }
       #content .content-container .card-product .product-img {
         width: 100%;

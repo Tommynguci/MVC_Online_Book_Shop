@@ -5,7 +5,7 @@
 }
 
 <div style="margin-top: 60px"></div>
-<div class="m-title">Danh mục sản phẩm</div>
+<div class="m-title">Đơn hàng</div>
 <div class="card" ng-app="Admin">
     <div class="card-body" ng-controller="ProductController">
         <div class="m-btn-control">
@@ -16,11 +16,11 @@
                 <option value="Price">Giá bán</option>
             </select>
             @*<button type="button" ng-click="Chon(direct)" class="btn btn-success m-btn">{{direct}}</button>*@
+
             <div style="float: right; margin: 0 8px;">
                 <button type="button" ng-click="showSuccessToast();" class="btn btn-success m-btn" value="Cập nhật"><i class="fas fa-edit"></i> Cập nhật</button>
 
             </div>
-
             <div class="search-container" style="padding-bottom: 10px">
                 Tìm kiếm:
                 <input type="text" placeholder="Search.." name="search" ng-model="searchText">
@@ -39,7 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr style="overflow-y: hidden" dir-paginate="product in products|orderBy:sortcolumn:reverse|filter:searchText|itemsPerPage:5" toltal-items="totalCount">
+                <tr style="overflow-y: hidden" dir-paginate="product in products|orderBy:sortcolumn:reverse|filter:searchText|itemsPerPage:3" toltal-items="totalCount">
                     @*<td style="height: 50px">{{product.Product_id}}</td>*@
                     <td style="height: 50px">{{product.Product_title}}</td>
                     <td style="height: 50px">{{product.Author}}</td>
@@ -52,14 +52,14 @@
                         <a><i class="fas fa-info-circle"></i></a>
                     </td>
                 </tr>
-                <tr>
+                @*<tr>
                     <td style="font-size: 16px; margin-left: 10px"><i class="fas fa-plus" data-toggle="modal" data-target="#myModal_Add" ng-click="Add()"></i></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                </tr>
+                </tr>*@
             </tbody>
         </table>
         <div id="toast"></div>
@@ -74,7 +74,7 @@
         <div class="m-modal modal fade " id="myModal_Add" role="dialog">
             <div class="modal-dialog">
 
-                 Modal content
+                Modal content
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -84,35 +84,35 @@
                         <form>
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Mã sản phẩm:</label>
-                                <input type="text" ng-model="Product_id"/>
+                                <input type="text" ng-model="Product_id" />
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Tên sản phẩm:</label>
-                                <input type="text" ng-model="Product_title"/>
+                                <input type="text" ng-model="Product_title" />
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Mã loại:</label>
-                                <input type="text" value="l1" ng-model="Category_id"/>
+                                <input type="text" value="l1" ng-model="Category_id" />
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Nhà xuất bản:</label>
-                                <input type="text" value="p1" ng-model="Publisher_id"/>
+                                <input type="text" value="p1" ng-model="Publisher_id" />
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Tác giả:</label>
-                                <input type="text" ng-model="Author"/>
+                                <input type="text" ng-model="Author" />
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Giá bán:</label>
-                                <input type="text" ng-model="Price"/>
+                                <input type="text" ng-model="Price" />
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Số lượng:</label>
-                                <input type="text" value="1" ng-model="Quantity"/>
+                                <input type="text" value="1" ng-model="Quantity" />
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Mô tả:</label>
-                                <input type="text" ng-model="Description"/>
+                                <input type="text" ng-model="Description" />
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Ảnh nhỏ:</label>
@@ -180,7 +180,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Ảnh nhỏ:</label>
-                                <input type="text" ng-model="e_product.Image_url"/>
+                                <input type="text" ng-model="e_product.Image_url" />
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="col-form-label">Ảnh lớn:</label>
@@ -198,7 +198,4 @@
         </div>
     </div>
 </div>
-
-
-
 
