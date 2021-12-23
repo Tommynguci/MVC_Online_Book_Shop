@@ -101,31 +101,30 @@ namespace DataAccessLayer
             return lst;
         }
 
-        public ListProduct GetProductsP(string productName, int PageIndex, int PageSize)
+        public List<Product> GetProductsP(int PageIndex, int PageSize)
         {
-            ListProduct spl = new ListProduct();
             List<Product> lst = new List<Product>();
-            SqlDataReader rdr = dh.StoreReaders("GetSanPhams", PageIndex, PageSize, productName);
+
+            SqlDataReader rdr = dh.ExcuteReader("exec spPhanTrang_Product "+PageIndex+","+PageSize+"");
             while (rdr.Read())
             {
                 Product product = new Product();
-                product.Product_id = rdr["product_id"].ToString();
+                product.Product_id = rdr["Product_id"].ToString();
                 product.Product_title = rdr["product_title"].ToString();
-                product.Author = rdr["author"].ToString();
-                product.Price = Convert.ToInt32(rdr["price"]);
+                product.Category_id = rdr["Category_id"].ToString();
+                product.Publisher_id = rdr["Publisher_id"].ToString();
+                product.Author = rdr["Author"].ToString();
+                product.Quantity = Convert.ToInt32(rdr["Quantity"]);
                 product.Image_url = rdr["image_url"].ToString();
                 product.Big_image_url = rdr["big_image_url"].ToString();
+                product.Price = Convert.ToInt32(rdr["price"]);
                 product.Description = rdr["description"].ToString();
+                DateTime date = Convert.ToDateTime(rdr["create_date_time"]);
+                product.Create_date_time = date;
                 lst.Add(product);
             }
 
-            spl.Products = lst;
-            rdr.NextResult();
-            while(rdr.Read())
-            {
-                spl.totalCount = rdr["totalCount"].ToString();
-            }
-            return spl;
+            return lst;
         }
 
         public string DeleteProduct(string id)
@@ -153,9 +152,124 @@ namespace DataAccessLayer
         {
             List<Product> products = new List<Product>();
 
-            SqlDataReader rdr = dh.ExcuteReader("select top(5) * " +
+            //SqlDataReader rdr = dh.ExcuteReader("select top(5) * " +
+            //    "from product " +
+            //    "order by create_date_time");
+
+            SqlDataReader rdr = dh.ExcuteReader("exec [dbo].[get_top_by_date_time]");
+            while (rdr.Read())
+            {
+                Product product = new Product();
+                product.Product_id = rdr["Product_id"].ToString();
+                product.Product_title = rdr["product_title"].ToString();
+                product.Category_id = rdr["Category_id"].ToString();
+                product.Publisher_id = rdr["Publisher_id"].ToString();
+                product.Author = rdr["Author"].ToString();
+                product.Quantity = Convert.ToInt32(rdr["Quantity"]);
+                product.Image_url = rdr["image_url"].ToString();
+                product.Big_image_url = rdr["big_image_url"].ToString();
+                product.Price = Convert.ToInt32(rdr["price"]);
+                product.Description = rdr["description"].ToString();
+                DateTime date = Convert.ToDateTime(rdr["create_date_time"]);
+                product.Create_date_time = date;
+                products.Add(product);
+            }
+
+            return products;
+        }
+
+        public List<Product> Get_10_Product_by_datetime()
+        {
+            List<Product> products = new List<Product>();
+
+            SqlDataReader rdr = dh.ExcuteReader("select top(10) * " +
                 "from product " +
                 "order by create_date_time");
+
+            //SqlDataReader rdr = dh.ExcuteReader("exec [dbo].[get_top_by_date_time]");
+            while (rdr.Read())
+            {
+                Product product = new Product();
+                product.Product_id = rdr["Product_id"].ToString();
+                product.Product_title = rdr["product_title"].ToString();
+                product.Category_id = rdr["Category_id"].ToString();
+                product.Publisher_id = rdr["Publisher_id"].ToString();
+                product.Author = rdr["Author"].ToString();
+                product.Quantity = Convert.ToInt32(rdr["Quantity"]);
+                product.Image_url = rdr["image_url"].ToString();
+                product.Big_image_url = rdr["big_image_url"].ToString();
+                product.Price = Convert.ToInt32(rdr["price"]);
+                product.Description = rdr["description"].ToString();
+                DateTime date = Convert.ToDateTime(rdr["create_date_time"]);
+                product.Create_date_time = date;
+                products.Add(product);
+            }
+
+            return products;
+        }
+
+        public List<Product> get_product_by_datetime()
+        {
+            List<Product> products = new List<Product>();
+
+            SqlDataReader rdr = dh.ExcuteReader("exec [dbo].[get_product_by_datetime]");
+            while (rdr.Read())
+            {
+                Product product = new Product();
+                product.Product_id = rdr["Product_id"].ToString();
+                product.Product_title = rdr["product_title"].ToString();
+                product.Category_id = rdr["Category_id"].ToString();
+                product.Publisher_id = rdr["Publisher_id"].ToString();
+                product.Author = rdr["Author"].ToString();
+                product.Quantity = Convert.ToInt32(rdr["Quantity"]);
+                product.Image_url = rdr["image_url"].ToString();
+                product.Big_image_url = rdr["big_image_url"].ToString();
+                product.Price = Convert.ToInt32(rdr["price"]);
+                product.Description = rdr["description"].ToString();
+                DateTime date = Convert.ToDateTime(rdr["create_date_time"]);
+                product.Create_date_time = date;
+                products.Add(product);
+            }
+
+            return products;
+        }
+
+        public List<Product> get_5_product_bestseller()
+        {
+            List<Product> products = new List<Product>();
+
+            //SqlDataReader rdr = dh.ExcuteReader("select top(5) * " +
+            //    "from product " +
+            //    "order by create_date_time");
+
+            SqlDataReader rdr = dh.ExcuteReader("exec [dbo].[get_5_product_bestseller]");
+            while (rdr.Read())
+            {
+                Product product = new Product();
+                product.Product_id = rdr["Product_id"].ToString();
+                product.Product_title = rdr["product_title"].ToString();
+                product.Category_id = rdr["Category_id"].ToString();
+                product.Publisher_id = rdr["Publisher_id"].ToString();
+                product.Author = rdr["Author"].ToString();
+                product.Quantity = Convert.ToInt32(rdr["Quantity"]);
+                product.Image_url = rdr["image_url"].ToString();
+                product.Big_image_url = rdr["big_image_url"].ToString();
+                product.Price = Convert.ToInt32(rdr["price"]);
+                product.Description = rdr["description"].ToString();
+                DateTime date = Convert.ToDateTime(rdr["create_date_time"]);
+                product.Create_date_time = date;
+                products.Add(product);
+            }
+
+            return products;
+        }
+
+        public List<Product> get_product_bestseller(int PageIndex, int PageSize)
+        {
+            List<Product> products = new List<Product>();
+
+            SqlDataReader rdr = dh.ExcuteReader("exec [dbo].[get_product_bestsellerPT]" + PageIndex + "," + PageSize + "");
+
             while (rdr.Read())
             {
                 Product product = new Product();

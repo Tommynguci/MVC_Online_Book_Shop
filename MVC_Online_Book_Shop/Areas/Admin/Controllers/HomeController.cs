@@ -8,6 +8,7 @@ using Bussiness;
 
 namespace MVC_Online_Book_Shop.Areas.Admin.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         ProductBUS pb = new ProductBUS();
@@ -17,15 +18,15 @@ namespace MVC_Online_Book_Shop.Areas.Admin.Controllers
             return View();
         }
 
-        public JsonResult GetProductsP(/*int pageIndex, int pageSize, string productName*/)
-        {
-            //if(Session["Product_title"] ==  null)
-            //{
-            //    Session.Add("Product_title", "Dr.Stone");
-            //}
+        //public JsonResult GetProductsP(/*int pageIndex, int pageSize, string productName*/)
+        //{
+        //    //if(Session["Product_title"] ==  null)
+        //    //{
+        //    //    Session.Add("Product_title", "Dr.Stone");
+        //    //}
 
-            ListProduct spl = pb.GetProductsP(1, 3, "abc" /*Session["Product_title"].ToString()*/);
-            return Json(spl, JsonRequestBehavior.AllowGet);
-        }
+        //    ListProduct spl = pb.GetProductsP(1, 3, "abc" /*Session["Product_title"].ToString()*/);
+        //    return Json(spl, JsonRequestBehavior.AllowGet);
+        //}
     }
 }

@@ -11,7 +11,7 @@ namespace MVC_Online_Book_Shop.Controllers
         // GET: New
         public ActionResult Index()
         {
-            return View("News");
+            return View();
         }
     }
 }

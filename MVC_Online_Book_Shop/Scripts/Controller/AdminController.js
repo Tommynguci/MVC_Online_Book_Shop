@@ -187,7 +187,40 @@ admin.controller("ProductController", function ($scope, $http) {
             alert('Update product failure');
         });
     }
+
+    $scope.Login = function () {
+        alert('active')
+        const pathname_login = window.location.pathname;
+        window.sessionStorage.setItem('pathname_login', pathname_login);
+    };
+
 });
+
+var app = angular.module('Login', []);
+
+app.controller("LoginController", function ($scope, $http) {
+    var user = { email: "", pass: "" };
+    $scope.User = user;
+
+    $scope.Login = function () {
+        $http({
+            method: 'Get',
+            url: '/Admin/Login/CheckLogin',
+            params: { us: $scope.User.email, pw: $scope.User.pass }
+        }).then(function (d) {
+            $scope.account = d.data;
+            if (($scope.User.email == $scope.account.username) && ($scope.User.pass == $scope.account.password)) {
+                window.location = '/admin';
+            }
+            else {
+                alert("Tài khoản hoặc mật khẩu không chính xác!");
+            }
+        }, function (error) {
+            alert('Đăng nhập lỗi')
+        });
+
+    }
+})
 
 var uploadapp = angular.module('UploadApp', ['ngFileUpload']);
 uploadapp.controller('UploadImage', function ($scope, $http, Upload, $timeout, $document) {

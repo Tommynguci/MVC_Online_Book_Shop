@@ -28,9 +28,9 @@ namespace Bussiness
             return _prod.GetProductsCategory(CatID);
         }
 
-        public ListProduct GetProductsP (int pageIndex, int PageSize, string ProductName)
+        public List<Product> GetProductsP (int pageIndex, int PageSize)
         {
-            return _prod.GetProductsP(ProductName, pageIndex, PageSize);
+            return _prod.GetProductsP(pageIndex, PageSize);
         }
 
         public string DeleteProduct(string id)
@@ -51,6 +51,26 @@ namespace Bussiness
         public List<Product> Get_Top_Product_by_datetime()
         {
             return _prod.Get_Top_Product_by_datetime();
+        }
+
+        public List<Product> get_product_by_datetime()
+        {
+            return _prod.get_product_by_datetime();
+        }
+
+        public List<Product> Get_10_Product_by_datetime()
+        {
+            return _prod.Get_10_Product_by_datetime();
+        }
+
+        public List<Product> get_5_product_bestseller()
+        {
+            return _prod.get_5_product_bestseller();
+        }
+
+        public List<Product> get_product_bestseller(int PageIndex, int PageSize)
+        {
+            return _prod.get_product_bestseller(PageIndex, PageSize);
         }
     }
 }

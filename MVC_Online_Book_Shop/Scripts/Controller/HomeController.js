@@ -42,6 +42,15 @@ myapp.controller("ProductController", function ($scope, $http) {
         alert('failed');
     });
 
+    $http({
+        method: "get",
+        url: '/BestSeller/get_5_product'
+    }).then(function success(d) {
+        $scope.product_bestseller = d.data;
+    }, function (error) {
+        alert('failed');
+    });
+
     $scope.selectCategory = function (cat_id) {
         localStorage.setItem('cat_id', cat_id);
     }
@@ -66,30 +75,8 @@ myapp.controller("ProductController", function ($scope, $http) {
             alert("Bạn cần đăng nhập để đặt mua!");
         }
     };
-    //var data = window.sessionStorage.getItem("orders");
-    //var orders = JSON.parse(data);
-    //var data_product = new Array();
-    //data_product.concat(orders);
-    //data_product.splice(0, 1);
-    ////$scope.orders = window.sessionStorage.getItem("orders");
-    //console.log(data_product);
-    //$scope.addToCart = function (product) {
-    //    //Lay ve san pham dat mua them vao gio hang
-
-    //    var username = sessionStorage.getItem("username");
-    //    if (username != null && username != "logout") {
-    //        data_product.push(product);
-    //        window.sessionStorage.setItem("orders", JSON.stringify(data_product));
-    //        alert('Sản phẩm đã thêm vào giỏ hàng');
-    //    }
-    //    else if (username == "logout" || username == null) {
-    //        alert("Bạn cần đăng nhập để đặt mua!");
-    //    }
-
-    //};
 
     $scope.total = sessionStorage.getItem("total");
-    //var total = parseInt($scope.total);
     if ($scope.total == null || $scope.total == 0 ) {
         $scope.total = 0;
     }
@@ -112,6 +99,7 @@ myapp.controller("ProductController", function ($scope, $http) {
     $scope.Logout = function () {
         sessionStorage.setItem('username', "logout");
     }
+
 });
 
 
@@ -128,3 +116,92 @@ myapp.controller('CatgoryController', function ($scope, $http) {
     });
 });
 
+
+myapp.controller('NewestController', function ($scope, $http) {
+    $scope.pageindex = sessionStorage.getItem('currentPage');
+    if (sessionStorage.getItem('currentPage') == null) {
+        $scope.pageindex = 1;
+        $http({
+            method: "get",
+            url: '/Newest/page/',
+            params: { page: 1/*, pagesize: $scope.pagesize*/ }
+        }).then(function success(d) {
+            $scope.products_by_date = d.data;
+            //sessionStorage.setItem('currentPage', $scope.pageindex);
+            //window.location = "newest?page=" + $scope.pageindex + "";
+        }, function (error) {
+            alert("Lấy sản phẩm mới nhất lỗi");
+        });
+    } else {
+        //$scope.pageindex = parseInt($scope.pageindex) + 1;
+        $http({
+            method: "get",
+            url: '/Newest/page/',
+            params: { page: $scope.pageindex/*, pagesize: $scope.pagesize*/ }
+        }).then(function success(d) {
+            $scope.products_by_date = d.data;
+            //sessionStorage.setItem('currentPage', $scope.pageindex);
+            //window.location = "newest?page=" + $scope.pageindex + "";
+        }, function (error) {
+            alert("Lấy sản phẩm mới nhất lỗi");
+        });
+    }
+
+    
+
+    $scope.GetSanPhamListP = function () {
+        $scope.pageindex = parseInt($scope.pageindex) + 1;
+        sessionStorage.setItem('currentPage', $scope.pageindex);
+        window.location = "newest?page=" + $scope.pageindex + "";
+    }
+
+
+    $scope.GetSanPhamListM = function () {
+
+        $scope.pageindex = parseInt($scope.pageindex) - 1;
+        sessionStorage.setItem('currentPage', $scope.pageindex);
+        window.location = "newest?page=" + $scope.pageindex + "";
+    }
+});
+
+myapp.controller('BestSellerController', function ($scope, $http) {
+    $scope.pageindex = sessionStorage.getItem('currentPageB');
+    if (sessionStorage.getItem('currentPageB') == null) {
+        $scope.pageindex = 1;
+        $http({
+            method: "get",
+            url: '/BestSeller/page/',
+            params: { page: 1 }
+        }).then(function success(d) {
+            $scope.products_bestseller = d.data;
+        }, function (error) {
+            alert("Lấy sản phẩm mới nhất lỗi");
+        });
+    } else {
+        $http({
+            method: "get",
+            url: '/BestSeller/page/',
+            params: { page: $scope.pageindex }
+        }).then(function success(d) {
+            $scope.products_bestseller = d.data;
+        }, function (error) {
+            alert("Lấy sản phẩm mới nhất lỗi");
+        });
+    }
+
+
+
+    $scope.GetSanPhamListP = function () {
+        $scope.pageindex = parseInt($scope.pageindex) + 1;
+        sessionStorage.setItem('currentPageB', $scope.pageindex);
+        window.location = "bestseller?page=" + $scope.pageindex + "";
+    }
+
+
+    $scope.GetSanPhamListM = function () {
+
+        $scope.pageindex = parseInt($scope.pageindex) - 1;
+        sessionStorage.setItem('currentPageB', $scope.pageindex);
+        window.location = "bestseller?page=" + $scope.pageindex + "";
+    }
+});

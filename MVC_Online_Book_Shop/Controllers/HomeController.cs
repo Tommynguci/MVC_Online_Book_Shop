@@ -75,6 +75,18 @@ namespace MVC_Online_Book_Shop.Controllers
             return Json(lst, JsonRequestBehavior.AllowGet);
         }
 
+        //public JsonResult get_product_bestseller()
+        //{
+        //    //List<Product> lst = pb.get_product_bestseller();
+        //    //return Json(lst, JsonRequestBehavior.AllowGet);
+        //}
+
+        public JsonResult get_5_product_bestseller()
+        {
+            List<Product> lst = pb.get_5_product_bestseller();
+            return Json(lst, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -39,36 +39,36 @@
         </div>
     </div>
 
-    <p class="more-product"><a href=""><i class="fas fa-angle-right content-icon"></i>Xem thêm sản phẩm</a></p>
+    <p class="more-product" ng-click="GetSanPhamListP()"><a href="/newest"><i class="fas fa-angle-right content-icon"></i>Xem thêm sản phẩm</a></p>
 
 
     @*Sản phẩm bán chạy*@
-    <!--<hr style="margin-top: 100px; margin-bottom: 20px" />
+    <hr style="margin-top: 100px; margin-bottom: 20px" />
     <div class="content-title">Sản phẩm bán chạy</div>
 
     <div class="content-container">
 
-        <div ng-repeat="product in Tproducts" class="card-product">
+        <div ng-repeat="product in product_bestseller" class="card-product">
             <a href="/home/detail/{{product.Product_id}}">
                 <img src="{{product.Image_url}}" alt="{{product.Product_title}}" class="product-img">
             </a>
             <div class="product-info">
                 <div class="product-heading">{{product.Product_title}}</div>
                 <div class="product-price">
-                    Giá bán:-->
-                    @*<span class="product-price-value-strikethrough">{{product.Price}}</span>*@
-                    <!--<span class="product-price-value">{{product.Price}}</span>
+                    Giá bán:
+                    <span class="product-price-value-strikethrough">{{product.Price}}</span>
+                    <span class="product-price-value">{{product.Price}}</span>
                 </div>
-                <div class="product-desc">-->
+                <div class="product-desc">
                     @*{{product.Description}}*@
-                    <!--<div class="btn-buy" ng-click="AddCart(product); plusTotal(product.Price)"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="btn-buy" ng-click="AddCart(product); plusTotal(product.Price)"><i class="fas fa-shopping-cart"></i></div>
                     <div class="btn-detail"><i class="far fa-eye"></i></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <p class="more-product"><a href=""><i class="fas fa-angle-right content-icon"></i>Xem thêm sản phẩm</a></p>-->
+    <p class="more-product"><a href="/bestseller"><i class="fas fa-angle-right content-icon"></i>Xem thêm sản phẩm</a></p>
 
     @*<div class="btn-prev-next-page">
               <button class="prev-page"><i class="fas fa-angle-left content-icon"></i>Trang trước</button>

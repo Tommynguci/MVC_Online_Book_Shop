@@ -31,7 +31,6 @@ namespace MVC_Online_Book_Shop.Controllers
             else
             {
                 List<Product> listcart = (List<Product>)Session["giohang"];
-                
                 //Kiem tra gio hang co san pham do hay chua
                 if(listcart.Find(m => m.Product_id == p.Product_id) == null)
                 {

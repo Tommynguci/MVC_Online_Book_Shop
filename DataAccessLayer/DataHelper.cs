@@ -63,7 +63,6 @@ namespace DataAccessLayer
             SqlConnection con = new SqlConnection(stcon);
 
             SqlCommand cmd = new SqlCommand(query, con);
-
             con.Open();
 
             SqlDataReader rdr = cmd.ExecuteReader();
